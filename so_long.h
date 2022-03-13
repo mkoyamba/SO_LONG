@@ -6,7 +6,24 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:28:56 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/12 14:28:57 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/13 13:03:08 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SO_LONG_H
+# define SO_LONG_H
+
+/*  		==================(     INCLUDES     )==================		  */
+
+//# include "libft/libft.h"
+# include "minilibx/mlx.h"
+
+/*  		==================(      MACROS      )==================		  */
+
+
+
+/*  		==================(    PROTOTYPES    )==================		  */
+
+
+
+#endif
