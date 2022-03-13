@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 22:07:56 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/13 12:12:04 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/13 12:25:14 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ char	*get_next_line(int fd)
 	if (!str[fd])
 		return (NULL);
 	line = ft_get_line(str[fd]);
+	if (!ft_strchr(str[fd], '\n'))
+	{
+		free(str[fd]);
+		return (line);
+	}
 	str[fd] = ft_update(str[fd]);
 	return (line);
 }
