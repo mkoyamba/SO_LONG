@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 09:32:57 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/01 11:42:08 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/13 12:11:30 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *str, char *buff)
+char	*ft_strjoin_gnl(char *str, char *buff)
 {
 	size_t	a;
 	size_t	b;

@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 22:07:56 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/01 11:42:13 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/13 12:12:04 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ char	*ft_read(int fd, char *str)
 	while (!ft_strchr(str, '\n') && rd != 0)
 	{
 		rd = read(fd, buff, BUFFER_SIZE);
+		if (rd == 0)
+			break ;
 		if (rd == -1)
 		{
 			free(buff);
 			return (NULL);
 		}
 		buff[rd] = '\0';
-		str = ft_strjoin(str, buff);
+		str = ft_strjoin_gnl(str, buff);
 	}
 	free(buff);
 	return (str);
