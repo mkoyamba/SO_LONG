@@ -6,7 +6,7 @@
 #    By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 12:30:30 by mkoyamba          #+#    #+#              #
-#    Updated: 2022/03/13 18:44:55 by mkoyamba         ###   ########.fr        #
+#    Updated: 2022/03/14 11:14:00 by mkoyamba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LIB =	libft/libft.a
 MLX = minilibx/libmlx.a
 
 SRC =	srcs/main.c \
-		srcs/map_init.c \
+#		srcs/map_init.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -42,7 +42,7 @@ clean:
 	rm -rf $(OBJ)
 
 fclean:
-#	make -C libft fclean
+	make -C libft fclean
 #	make -C minilibx clean
 	rm -rf $(OBJ)
 	rm -f $(NAME)

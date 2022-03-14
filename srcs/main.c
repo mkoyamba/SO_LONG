@@ -6,13 +6,13 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:26:35 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/13 18:45:18 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/14 11:24:19 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	display_map(char **map)
+/*void	display_map(char **map)
 {
 	int	n;
 
@@ -37,7 +37,7 @@ static void	free_map(char **map)
 	}
 	if (map)
 		free(map);
-}
+}*/
 
 int main(void)
 {
@@ -56,7 +56,8 @@ int main(void)
 	mlx_loop(window);	*/
 
 	int		fd;
-	char	**map;
+	//char	**map;
+	char	*str;
 
 	fd = open("maps/small.ber", O_RDONLY);
 	if (fd < 0)
@@ -64,7 +65,24 @@ int main(void)
 		ft_printf("Mauvais file descriptor.\n");
 		exit(0);
 	}
-	map = map_creator(fd);
-	display_map(map);
-	free_map(map);
+	str = get_next_line(fd);
+	ft_printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	ft_printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	ft_printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	ft_printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	ft_printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	ft_printf("%s", str);
+	//map = map_creator(fd);
+	//display_map(map);
+	//free_map(map);
 }

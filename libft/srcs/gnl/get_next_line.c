@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 22:07:56 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/13 18:43:26 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/14 11:24:21 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,24 @@ static char	*ft_strjoin_gnl(char *str, char *buff)
 	size_t	b;
 	char	*line;
 
-	if (!str)
-	{
-		str = (char *)malloc(sizeof(char) * 1);
-		if (!str || !buff)
-			return (NULL);
-		str[0] = '\0';
-	}
 	line = malloc(sizeof(char) * ((g_ft_strlen(str) + g_ft_strlen(buff)) + 1));
-	if (line == NULL)
+	if (!line)
+	{
+		free(str);
 		return (NULL);
-	a = -1;
+	}
+	a = 0;
 	b = 0;
-	if (str)
-		while (str[++a] != '\0')
-			line[a] = str[a];
-	while (buff[b] != '\0')
-		line[a++] = buff[b++];
+	while (str[a])
+	{
+		line[a] = str[a];
+		a++;
+	}
+	while (buff[b])
+	{
+		line[a + b] = buff[b];
+		b++;
+	}
 	line[g_ft_strlen(str) + g_ft_strlen(buff)] = '\0';
 	free(str);
 	return (line);
@@ -66,22 +67,47 @@ char	*ft_read(int fd, char *str)
 	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buff)
 		return (NULL);
-	rd = 1;
-	while (!ft_strchr_gnl(str, '\n') && rd != 0)
+	rd = -5;
+	while (!ft_strchr_gnl(str, '\n'))
 	{
 		rd = read(fd, buff, BUFFER_SIZE);
 		if (rd == 0)
 			break ;
 		if (rd == -1)
-		{
-			free(buff);
-			return (NULL);
-		}
+			break ;
 		buff[rd] = '\0';
 		str = ft_strjoin_gnl(str, buff);
+		if (!str)
+			return (NULL);
 	}
 	free(buff);
 	return (str);
+}
+
+static char	*output_line(char **str, int fd)
+{
+	char		*line;
+
+	str[fd] = ft_read(fd, str[fd]);
+	if (!str[fd])
+		return (NULL);
+	if (ft_strchr_gnl(str[fd], '\n'))
+	{
+		line = ft_get_line(str[fd]);
+		str[fd] = ft_update(str[fd]);
+		return (line);
+	}
+	else
+	{
+		if (str[fd][0] == '\0')
+		{
+			free(str[fd]);
+			return (NULL);
+		}
+		line = ft_strdup(str[fd]);
+		str[fd][0] = '\0';
+		return (line);
+	}
 }
 
 char	*get_next_line(int fd)
@@ -91,20 +117,14 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= OPEN_MAX)
 		return (NULL);
-	str[fd] = ft_read(fd, str[fd]);
 	if (!str[fd])
-		return (NULL);
-	line = ft_get_line(str[fd]);
-	if (!ft_strchr_gnl(str[fd], '\n'))
+		str[fd] = ft_strdup("");
+	if (ft_strchr_gnl(str[fd], '\n'))
 	{
-		if (!str[fd][0])
-		{
-			free(str[fd]);
-			return (NULL);
-		}
-		free(str[fd]);
+		line = ft_get_line(str[fd]);
+		str[fd] = ft_update(str[fd]);
 		return (line);
 	}
-	str[fd] = ft_update(str[fd]);
-	return (line);
+	else
+		return (output_line(str, fd));
 }

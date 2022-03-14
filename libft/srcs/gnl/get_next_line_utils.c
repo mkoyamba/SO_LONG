@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 09:32:57 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/13 18:38:27 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/14 11:24:25 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_update(char *str)
 	a = 0;
 	while (str[a] && str[a] != '\n')
 		a++;
-	if (!str[a])
+	if (!str[0])
 	{
 		free(str);
 		return (NULL);
