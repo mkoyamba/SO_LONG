@@ -6,7 +6,7 @@
 #    By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 12:30:30 by mkoyamba          #+#    #+#              #
-#    Updated: 2022/03/14 11:14:00 by mkoyamba         ###   ########.fr        #
+#    Updated: 2022/03/17 21:05:56 by mkoyamba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,29 +23,37 @@ LIB =	libft/libft.a
 MLX = minilibx/libmlx.a
 
 SRC =	srcs/main.c \
-#		srcs/map_init.c \
+		srcs/end_game.c \
+		srcs/init/fd_init.c \
+		srcs/init/img_init.c \
+		srcs/init/null_init.c \
+		srcs/init/mlx_init.c \
+		srcs/init/map/map_init.c \
+		srcs/init/map/map_check.c \
+		srcs/game/so_long.c \
+		srcs/game/events.c \
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make -C libft
-	make -C minilibx
-	gcc $(CFLAGS) $(MLX_FLAGS) $(OBJ) $(LIB) $(MLX) -o $(NAME)
+	@make -C minilibx
+	@make -C libft
+	@gcc $(CFLAGS) $(MLX_FLAGS) $(OBJ) $(LIB) $(MLX) -o $(NAME)
 	
 %.o: %.c
-	gcc $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	@gcc $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 clean:
-	make -C libft clean
-	rm -rf $(OBJ)
+	@make -C libft clean
+	@rm -rf $(OBJ)
 
 fclean:
-	make -C libft fclean
-#	make -C minilibx clean
-	rm -rf $(OBJ)
-	rm -f $(NAME)
+	@make -C libft fclean
+	@make -C minilibx clean
+	@rm -rf $(OBJ)
+	@rm -f $(NAME)
 
 re: fclean all
 

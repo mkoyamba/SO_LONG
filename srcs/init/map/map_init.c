@@ -6,34 +6,21 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:13:56 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/14 09:49:05 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/17 17:41:10 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../../includes/so_long.h"
 
-static void	free_map(char **map)
-{
-	int	n;
-
-	n = 0;
-	while (map[n])
-	{
-		free(map[n]);
-		n++;
-	}
-	if (map)
-		free(map);
-}
-
-static void	error_out(char **new_map, char **map, int fd)
+void	error_out(char **new_map, char **map, int fd)
 {
 	if (new_map)
 		free_map(new_map);
 	if (map)
 		free_map(map);
-	close(fd);
-	ft_printf("Une erreur est survenue lors de la compilation de la map.\n");
+	if (fd >= 0)
+		close(fd);
+	ft_printf("Error\nErreur lors de la compilation de la map.\n");
 	exit(0);
 }
 
@@ -60,6 +47,16 @@ static char	**map_add(char **map, char *str, int fd)
 	new_map[n + 1] = NULL;
 	free(map);
 	return (new_map);
+}
+
+void	map_check(t_data *data)
+{
+	if (!data->map || !data->map[0] || !data->map[1] || !data->map[2]
+		|| !data->map[0][0] || !data->map[0][1] || !data->map[0][2])
+		error_check(data, 0);
+	check_shape(data);
+	check_border(data);
+	check_content(data);
 }
 
 char	**map_creator(int fd)

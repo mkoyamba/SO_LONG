@@ -1,14 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   img_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 14:28:59 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/13 16:13:54 by mkoyamba         ###   ########.fr       */
+/*   Created: 2022/03/17 15:46:15 by mkoyamba          #+#    #+#             */
+/*   Updated: 2022/03/17 21:22:25 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
+void	img_init(t_data *data)
+{
+	size_t		n;
+	static char	*img[IMG_NUMBER] = {SOL, WALL, PLAYER, OBJECT, EXIT};
+
+	n = 0;
+	while (n < IMG_NUMBER)
+	{
+		data->img[n].ptr = mlx_xpm_file_to_image(data->vars.mlx, img[n],
+				&data->img[n].sizex, &data->img[n].sizey);
+		if (!data->img[n].ptr)
+			error_msg(data, "Erreur lors de la compilation des images.\n");
+		n++;
+	}
+}

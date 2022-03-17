@@ -6,7 +6,7 @@
 #    By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 10:35:41 by mkoyamba          #+#    #+#              #
-#    Updated: 2022/03/13 17:04:29 by mkoyamba         ###   ########.fr        #
+#    Updated: 2022/03/17 19:59:32 by mkoyamba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,17 +85,19 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@printf "\033[32;1m\n\nLibft created\n\n"
 
 %.o: %.c
-	gcc $(FLAGS) -I $(INCLUDES) -c $< -o $@
+	@printf "\033[31;1m."
+	@gcc $(FLAGS) -I $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

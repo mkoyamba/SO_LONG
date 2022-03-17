@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   null_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 14:26:35 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/17 21:16:51 by mkoyamba         ###   ########.fr       */
+/*   Created: 2022/03/17 16:12:23 by mkoyamba          #+#    #+#             */
+/*   Updated: 2022/03/17 18:23:57 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
-int	main(int argc, char **argv)
+void	null_init(t_data *data)
 {
-	t_data	data;
+	size_t	n;
 
-	null_init(&data);
-	fd_init(&data, argv, argc);
-	data.player.moves = 0;
-	mlx_start(&data);
+	n = 0;
+	data->map = NULL;
+	data->vars.mlx = NULL;
+	data->vars.win = NULL;
+	while (n < IMG_NUMBER)
+	{
+		data->img[n].ptr = NULL;
+		n++;
+	}
 }
