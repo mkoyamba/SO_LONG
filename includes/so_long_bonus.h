@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:28:56 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/17 21:35:58 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/17 22:12:04 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 /*  		==================(     INCLUDES     )==================		  */
 
+# include <math.h>
 # include "../minilibx/mlx.h"
 # include "../libft/includes/libft.h"
 # include <fcntl.h>

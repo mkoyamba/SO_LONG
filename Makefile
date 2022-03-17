@@ -6,7 +6,7 @@
 #    By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 12:30:30 by mkoyamba          #+#    #+#              #
-#    Updated: 2022/03/17 21:05:56 by mkoyamba         ###   ########.fr        #
+#    Updated: 2022/03/17 22:30:02 by mkoyamba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ MLX_FLAGS = -framework OpenGL -framework AppKit
 
 NAME = so_long
 
-INCLUDES =	includes/so_long.h\
+INCLUDES =	includes/so_long.h \
+
+INCLUDES_B =	includes/so_long_bonus.h \
 
 LIB =	libft/libft.a
 
@@ -33,26 +35,48 @@ SRC =	srcs/main.c \
 		srcs/game/so_long.c \
 		srcs/game/events.c \
 
+BONUS = bonus/main_bonus.c \
+		bonus/end_game_bonus.c \
+		bonus/init/fd_init_bonus.c \
+		bonus/init/img_init_bonus.c \
+		bonus/init/null_init_bonus.c \
+		bonus/init/mlx_init_bonus.c \
+		bonus/init/map/map_init_bonus.c \
+		bonus/init/map/map_check_bonus.c \
+		bonus/game/so_long_bonus.c \
+		bonus/game/events_bonus.c \
+
 OBJ = $(SRC:.c=.o)
+
+OBJB = $(BONUS:bonus.c=bonus.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C minilibx
 	@make -C libft
-	@gcc $(CFLAGS) $(MLX_FLAGS) $(OBJ) $(LIB) $(MLX) -o $(NAME)
+	gcc $(CFLAGS) $(MLX_FLAGS) $(OBJ) $(LIB) $(MLX) -o $(NAME)
+
+%bonus.o: %bonus.c
+	gcc $(CFLAGS) -I $(INCLUDES_B) -c $< -o $@
 	
 %.o: %.c
-	@gcc $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	gcc $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+
+
+bonus: $(OBJB)
+	@make -C minilibx
+	@make -C libft
+	gcc $(CFLAGS) $(MLX_FLAGS) $(OBJB) $(LIB) $(MLX) -o $(NAME)
 
 clean:
 	@make -C libft clean
-	@rm -rf $(OBJ)
+	@rm -rf $(OBJ) $(OBJB)
 
 fclean:
 	@make -C libft fclean
 	@make -C minilibx clean
-	@rm -rf $(OBJ)
+	@rm -rf $(OBJ) $(OBJB)
 	@rm -f $(NAME)
 
 re: fclean all
