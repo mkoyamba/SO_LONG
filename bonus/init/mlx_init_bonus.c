@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:04:11 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/17 22:10:45 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 11:45:26 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	mlx_start(t_data *data)
 			data->sizey * RES, "So_long");
 	img_init(data);
 	map_reload(data);
-	mlx_hook(data->vars.win, 17, 0, end_msg, data);
+	mlx_hook(data->vars.win, 17, 0, end_msg_cross, data);
 	mlx_key_hook(data->vars.win, so_long, data);
 	mlx_loop(data->vars.mlx);
 }

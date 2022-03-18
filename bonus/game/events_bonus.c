@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:52:40 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/18 10:42:40 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 11:36:53 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	exit_event(t_data *data)
 		return ;
 	data->player.moves += 1;
 	ft_printf("%i\n", data->player.moves);
-	end_msg(data);
+	end_msg(data, "Victoire de Raichu. GG! :)\n");
 }
 
 void	event_up(t_data *data)
@@ -37,12 +37,11 @@ void	event_up(t_data *data)
 		data->map[data->player.y][data->player.x] = '0';
 		data->player.moves += 1;
 		data->player.y -= 1;
-		ft_printf("%i\n", data->player.moves);
 	}
 	else if (data->map[data->player.y - 1][data->player.x] == 'E')
 		exit_event(data);
 	else if (data->map[data->player.y - 1][data->player.x] == 'B')
-		end_msg(data);
+		end_msg(data, "Victoire de Mewtwo. GG! :)\n");
 	map_reload(data);
 }
 
@@ -62,12 +61,11 @@ void	event_down(t_data *data)
 		data->map[data->player.y][data->player.x] = '0';
 		data->player.moves += 1;
 		data->player.y += 1;
-		ft_printf("%i\n", data->player.moves);
 	}
 	else if (data->map[data->player.y + 1][data->player.x] == 'E')
 		exit_event(data);
 	else if (data->map[data->player.y + 1][data->player.x] == 'B')
-		end_msg(data);
+		end_msg(data, "Victoire de Mewtwo. GG! :)\n");
 	map_reload(data);
 }
 
@@ -87,12 +85,11 @@ void	event_left(t_data *data)
 		data->map[data->player.y][data->player.x] = '0';
 		data->player.moves += 1;
 		data->player.x -= 1;
-		ft_printf("%i\n", data->player.moves);
 	}
 	else if (data->map[data->player.y][data->player.x - 1] == 'E')
 		exit_event(data);
 	else if (data->map[data->player.y][data->player.x - 1] == 'B')
-		end_msg(data);
+		end_msg(data, "Victoire de Mewtwo. GG! :)\n");
 	map_reload(data);
 }
 
@@ -112,11 +109,10 @@ void	event_right(t_data *data)
 		data->map[data->player.y][data->player.x] = '0';
 		data->player.moves += 1;
 		data->player.x += 1;
-		ft_printf("%i\n", data->player.moves);
 	}
 	else if (data->map[data->player.y][data->player.x + 1] == 'E')
 		exit_event(data);
 	else if (data->map[data->player.y][data->player.x + 1] == 'B')
-		end_msg(data);
+		end_msg(data, "Victoire de Mewtwo. GG! :)\n");
 	map_reload(data);
 }

@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:28:56 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/18 10:39:22 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 11:45:12 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 /*  		==================(      MACROS      )==================		  */
 
 # define RES 32
-# define IMG_NUMBER 6
+# define IMG_NUMBER 7
 
 # define SOL "assets/Sol.xpm"
 # define PLAYER "assets/Pichu.xpm"
@@ -31,6 +31,7 @@
 # define WALL "assets/Wall.xpm"
 # define EXIT "assets/Exit.xpm"
 # define ENEMY "assets/Mewtwo.xpm"
+# define MOVES "assets/Moves.xpm"
 
 # define EV1 "assets/Pikachu.xpm"
 # define EV2 "assets/Raichu.xpm"
@@ -65,7 +66,7 @@ typedef struct s_data
 	int			sizey;
 	size_t		items;
 	t_vars		vars;
-	t_img		img[6];
+	t_img		img[7];
 	t_player	player;
 	t_player	enemy;
 }			t_data;
@@ -98,7 +99,7 @@ void	mlx_start(t_data *data);
 /*  		==================(   FONCTIONNEMENT   )==================		  */
 
 void	error_msg(t_data *data, char *str);
-int		end_msg(t_data *data);
+int		end_msg(t_data *data, char *str);
 void	free_map(char **map);
 int		so_long(int keycode, t_data *data);
 void	map_reload(t_data *data);
@@ -111,5 +112,6 @@ void	event_enemy_down(t_data *data);
 void	event_enemy_left(t_data *data);
 void	event_enemy_right(t_data *data);
 void	evolve(t_data *data);
+int		end_msg_cross(t_data *data);
 
 #endif

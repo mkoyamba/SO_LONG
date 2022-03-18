@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:47:54 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/18 10:45:11 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 11:34:27 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	event_enemy_up(t_data *data)
 		data->enemy.y -= 1;
 	}
 	else if (data->map[data->enemy.y - 1][data->enemy.x] == 'P')
-		end_msg(data);
+		end_msg(data, "Victoire de Mewtwo. GG! :)\n");
 	map_reload(data);
 }
 
@@ -44,7 +44,7 @@ void	event_enemy_down(t_data *data)
 		data->enemy.y += 1;
 	}
 	else if (data->map[data->enemy.y + 1][data->enemy.x] == 'P')
-		end_msg(data);
+		end_msg(data, "Victoire de Mewtwo. GG! :)\n");
 	map_reload(data);
 }
 
@@ -62,7 +62,7 @@ void	event_enemy_left(t_data *data)
 		data->enemy.x -= 1;
 	}
 	else if (data->map[data->enemy.y][data->enemy.x - 1] == 'P')
-		end_msg(data);
+		end_msg(data, "Victoire de Mewtwo. GG! :)\n");
 	map_reload(data);
 }
 
@@ -80,6 +80,6 @@ void	event_enemy_right(t_data *data)
 		data->enemy.x += 1;
 	}
 	else if (data->map[data->enemy.y][data->enemy.x + 1] == 'P')
-		end_msg(data);
+		end_msg(data, "Victoire de Mewtwo. GG! :)\n");
 	map_reload(data);
 }
