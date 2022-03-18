@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:28:19 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/17 22:10:28 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 10:32:24 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	put_img(t_data *data, char c, int x, int y)
 {
 	int			n;
-	static char	str[6] = "01PCE";
+	static char	str[7] = "01PCEB";
 
 	n = 0;
 	while (str[n])
@@ -49,15 +49,24 @@ void	map_reload(t_data *data)
 
 int	so_long(int keycode, t_data *data)
 {
-	if (keycode == 53)
+	int			n;
+	static int	array[8] = {13, 1, 0, 2, 126, 125, 123, 124};
+	static t_fnct	fnct[8] = {event_up, event_down, event_left,
+		event_right, event_enemy_up, event_enemy_down, event_enemy_left,
+		event_enemy_right};
+
+	n = 0;
+	while (n < 8)
+	{
+		if (array[n] == keycode)
+			break ;
+		n++;
+	}
+	if (n < 4)
+		fnct[n](data);
+	else if (n < 8 && data->enemy.items == 1)
+		fnct[n](data);
+	else if (keycode == 53)
 		end_msg(data);
-	else if (keycode == 13)
-		event_up(data);
-	else if (keycode == 1)
-		event_down(data);
-	else if (keycode == 0)
-		event_left(data);
-	else if (keycode == 2)
-		event_right(data);
 	return (0);
 }

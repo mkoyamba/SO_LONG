@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:52:40 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/18 09:36:32 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 10:42:40 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	event_up(t_data *data)
 	}
 	else if (data->map[data->player.y - 1][data->player.x] == 'E')
 		exit_event(data);
+	else if (data->map[data->player.y - 1][data->player.x] == 'B')
+		end_msg(data);
 	map_reload(data);
 }
 
@@ -64,6 +66,8 @@ void	event_down(t_data *data)
 	}
 	else if (data->map[data->player.y + 1][data->player.x] == 'E')
 		exit_event(data);
+	else if (data->map[data->player.y + 1][data->player.x] == 'B')
+		end_msg(data);
 	map_reload(data);
 }
 
@@ -87,6 +91,8 @@ void	event_left(t_data *data)
 	}
 	else if (data->map[data->player.y][data->player.x - 1] == 'E')
 		exit_event(data);
+	else if (data->map[data->player.y][data->player.x - 1] == 'B')
+		end_msg(data);
 	map_reload(data);
 }
 
@@ -110,5 +116,7 @@ void	event_right(t_data *data)
 	}
 	else if (data->map[data->player.y][data->player.x + 1] == 'E')
 		exit_event(data);
+	else if (data->map[data->player.y][data->player.x + 1] == 'B')
+		end_msg(data);
 	map_reload(data);
 }

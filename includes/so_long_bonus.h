@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:28:56 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/18 09:32:23 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 10:39:22 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@
 /*  		==================(      MACROS      )==================		  */
 
 # define RES 32
-# define IMG_NUMBER 5
+# define IMG_NUMBER 6
 
 # define SOL "assets/Sol.xpm"
 # define PLAYER "assets/Pichu.xpm"
 # define OBJECT "assets/Pokeball.xpm"
 # define WALL "assets/Wall.xpm"
 # define EXIT "assets/Exit.xpm"
+# define ENEMY "assets/Mewtwo.xpm"
 
 # define EV1 "assets/Pikachu.xpm"
 # define EV2 "assets/Raichu.xpm"
@@ -64,9 +65,12 @@ typedef struct s_data
 	int			sizey;
 	size_t		items;
 	t_vars		vars;
-	t_img		img[5];
+	t_img		img[6];
 	t_player	player;
+	t_player	enemy;
 }			t_data;
+
+typedef void	(*t_fnct)(t_data *);
 
 /*  		==================(   INITIALISATION   )==================		  */
 
@@ -83,6 +87,7 @@ void	error_check(t_data *data, int n);
 void	check_shape(t_data *data);
 void	check_border(t_data *data);
 void	check_content(t_data *data);
+void	check_bonus(t_data *data);
 void	error_out(char **new_map, char **map, int fd);
 
 //	MLX
@@ -101,6 +106,10 @@ void	event_up(t_data *data);
 void	event_down(t_data *data);
 void	event_left(t_data *data);
 void	event_right(t_data *data);
+void	event_enemy_up(t_data *data);
+void	event_enemy_down(t_data *data);
+void	event_enemy_left(t_data *data);
+void	event_enemy_right(t_data *data);
 void	evolve(t_data *data);
 
 #endif

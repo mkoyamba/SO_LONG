@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 15:46:15 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/17 22:10:42 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 09:42:53 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	img_init(t_data *data)
 {
 	size_t		n;
-	static char	*img[IMG_NUMBER] = {SOL, WALL, PLAYER, OBJECT, EXIT};
+	static char	*img[IMG_NUMBER] = {SOL, WALL, PLAYER, OBJECT, EXIT, ENEMY};
 
 	n = 0;
 	while (n < IMG_NUMBER)

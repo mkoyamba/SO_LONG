@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 12:25:24 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/18 09:20:28 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 10:36:25 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	check_content_char(char i, int *c, int *e, int *p)
 		*e += 1;
 	else if (i == 'P')
 		*p += 1;
-	else if (i == '0' || i == '1')
+	else if (i == '0' || i == '1' || i == 'B')
 		return (1);
 	else
 		return (0);

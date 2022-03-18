@@ -6,7 +6,7 @@
 #    By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 12:30:30 by mkoyamba          #+#    #+#              #
-#    Updated: 2022/03/18 09:16:43 by mkoyamba         ###   ########.fr        #
+#    Updated: 2022/03/18 10:46:38 by mkoyamba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,12 @@ BONUS = bonus/main_bonus.c \
 		bonus/init/img_init_bonus.c \
 		bonus/init/null_init_bonus.c \
 		bonus/init/mlx_init_bonus.c \
+		bonus/init/bonus_init_bonus.c \
 		bonus/init/map/map_init_bonus.c \
 		bonus/init/map/map_check_bonus.c \
 		bonus/game/so_long_bonus.c \
 		bonus/game/events_bonus.c \
+		bonus/game/events_enemy_bonus.c \
 		bonus/game/evolve_bonus.c \
 
 OBJ = $(SRC:.c=.o)
