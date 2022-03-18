@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:28:19 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/18 10:32:24 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 10:49:25 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	map_reload(t_data *data)
 
 int	so_long(int keycode, t_data *data)
 {
-	int			n;
-	static int	array[8] = {13, 1, 0, 2, 126, 125, 123, 124};
+	int				n;
+	static int		array[8] = {13, 1, 0, 2, 126, 125, 123, 124};
 	static t_fnct	fnct[8] = {event_up, event_down, event_left,
 		event_right, event_enemy_up, event_enemy_down, event_enemy_left,
 		event_enemy_right};
