@@ -6,7 +6,7 @@
 #    By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 12:30:30 by mkoyamba          #+#    #+#              #
-#    Updated: 2022/03/18 11:47:39 by mkoyamba         ###   ########.fr        #
+#    Updated: 2022/03/18 12:01:59 by mkoyamba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,16 +61,16 @@ $(NAME): $(OBJ)
 	gcc $(CFLAGS) $(MLX_FLAGS) $(OBJ) $(LIB) $(MLX) -o $(NAME)
 
 %bonus.o: %bonus.c
-	gcc $(CFLAGS) -I $(INCLUDES_B) -c $< -o $@
+	@gcc $(CFLAGS) -I $(INCLUDES_B) -c $< -o $@
 	
 %.o: %.c
-	gcc $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	@gcc $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 
 bonus: $(OBJB)
 	@make -C minilibx
 	@make -C libft
-	gcc $(CFLAGS) $(MLX_FLAGS) $(OBJB) $(LIB) $(MLX) -o $(NAME)
+	@gcc $(CFLAGS) $(MLX_FLAGS) $(OBJB) $(LIB) $(MLX) -o $(NAME)
 
 clean:
 	@make -C libft clean

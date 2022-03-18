@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:52:40 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/18 11:36:53 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 12:12:26 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	exit_event(t_data *data)
 	if (data->player.items > 0)
 		return ;
 	data->player.moves += 1;
-	ft_printf("%i\n", data->player.moves);
 	end_msg(data, "Victoire de Raichu. GG! :)\n");
 }
 
