@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:28:56 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/17 22:12:04 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 09:32:23 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 # define OBJECT "assets/Pokeball.xpm"
 # define WALL "assets/Wall.xpm"
 # define EXIT "assets/Exit.xpm"
+
+# define EV1 "assets/Pikachu.xpm"
+# define EV2 "assets/Raichu.xpm"
 
 /*  		==================(     STRUCTURES     )==================		  */
 
@@ -59,6 +62,7 @@ typedef struct s_data
 	char		**map;
 	int			sizex;
 	int			sizey;
+	size_t		items;
 	t_vars		vars;
 	t_img		img[5];
 	t_player	player;

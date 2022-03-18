@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 12:25:24 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/17 22:10:33 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 09:20:28 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void	check_content(t_data *data)
 		y++;
 	}
 	data->player.items = c;
+	data->items = c;
 	if (p != 1 || e != 1 || c < 1)
 		error_check(data, 3);
 }

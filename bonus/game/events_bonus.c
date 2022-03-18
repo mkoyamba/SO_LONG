@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:52:40 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/17 22:10:24 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 09:36:32 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ void	event_up(t_data *data)
 		data->map[data->player.y - 1][data->player.x] == 'C')
 	{
 		if (data->map[data->player.y - 1][data->player.x] == 'C')
+		{
 			data->player.items -= 1;
+			evolve(data);
+		}
 		data->map[data->player.y - 1][data->player.x] = 'P';
 		data->map[data->player.y][data->player.x] = '0';
 		data->player.moves += 1;
@@ -49,7 +52,10 @@ void	event_down(t_data *data)
 		data->map[data->player.y + 1][data->player.x] == 'C')
 	{
 		if (data->map[data->player.y + 1][data->player.x] == 'C')
+		{
 			data->player.items -= 1;
+			evolve(data);
+		}
 		data->map[data->player.y + 1][data->player.x] = 'P';
 		data->map[data->player.y][data->player.x] = '0';
 		data->player.moves += 1;
@@ -69,7 +75,10 @@ void	event_left(t_data *data)
 		data->map[data->player.y][data->player.x - 1] == 'C')
 	{
 		if (data->map[data->player.y][data->player.x - 1] == 'C')
+		{
 			data->player.items -= 1;
+			evolve(data);
+		}
 		data->map[data->player.y][data->player.x - 1] = 'P';
 		data->map[data->player.y][data->player.x] = '0';
 		data->player.moves += 1;
@@ -89,7 +98,10 @@ void	event_right(t_data *data)
 		data->map[data->player.y][data->player.x + 1] == 'C')
 	{
 		if (data->map[data->player.y][data->player.x + 1] == 'C')
+		{
 			data->player.items -= 1;
+			evolve(data);
+		}
 		data->map[data->player.y][data->player.x + 1] = 'P';
 		data->map[data->player.y][data->player.x] = '0';
 		data->player.moves += 1;
