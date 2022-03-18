@@ -6,7 +6,7 @@
 /*   By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:28:56 by mkoyamba          #+#    #+#             */
-/*   Updated: 2022/03/18 11:45:12 by mkoyamba         ###   ########.fr       */
+/*   Updated: 2022/03/18 12:50:14 by mkoyamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 /*  		==================(     INCLUDES     )==================		  */
 
-# include <math.h>
 # include "../minilibx/mlx.h"
 # include "../libft/includes/libft.h"
 # include <fcntl.h>
@@ -66,7 +65,7 @@ typedef struct s_data
 	int			sizey;
 	size_t		items;
 	t_vars		vars;
-	t_img		img[7];
+	t_img		img[IMG_NUMBER];
 	t_player	player;
 	t_player	enemy;
 }			t_data;
