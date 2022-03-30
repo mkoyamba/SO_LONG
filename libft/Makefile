@@ -6,11 +6,11 @@
 #    By: mkoyamba <mkoyamba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 10:35:41 by mkoyamba          #+#    #+#              #
-#    Updated: 2022/03/17 19:59:32 by mkoyamba         ###   ########.fr        #
+#    Updated: 2022/03/30 11:37:19 by mkoyamba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=42
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -D BUFFER_SIZE=42
 
 NAME = libft.a
 
